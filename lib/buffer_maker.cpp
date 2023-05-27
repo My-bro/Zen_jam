@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2023
-** main.c
+** Zen_jam
 ** File description:
-** main navy start
+** buffer_maker
 */
 
 #include <unistd.h>
@@ -15,7 +15,7 @@ char *buffer_maker(char *av)
     struct stat bloc;
     stat(av, &bloc);
     int file = open(av, O_RDONLY);
-    char *buffer = malloc(sizeof(char) * (bloc.st_size));
+    char *buffer = (char*) malloc(sizeof(char) * (bloc.st_size));
     int byte = read(file,buffer,bloc.st_size);
     buffer[byte] = '\0';
     return buffer;

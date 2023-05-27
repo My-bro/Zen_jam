@@ -3,7 +3,11 @@
 ## File description:
 ## Makefile
 
-SRC = 	main.cpp
+SRC = 	lib/splite_string.cpp\
+		lib/buffer_maker.cpp\
+		lib/config_file.cpp\
+		lib/link_node.cpp\
+		lib/main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
