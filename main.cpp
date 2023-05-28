@@ -42,10 +42,8 @@ int main(int ac, char **av)
     node_t *head = init_config_file("./src/configuration_file.txt");
 
     sf::Font font;
-    if (!font.loadFromFile("./src/font.ttf")) // You need to provide a font file here
-    {
-        // error handling
-        return 1;
+    if (!font.loadFromFile("./src/font.ttf")) {
+        return 84;
     }
 
     sf::Text text;
