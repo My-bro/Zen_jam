@@ -16,6 +16,5 @@ void link_node(node_t **head, node_t **tail, node_t **node)
     } else {
         (*tail)->next = *node;
         *tail = *node;
-        (*tail)->next = nullptr;
     }
 }

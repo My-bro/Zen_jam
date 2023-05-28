@@ -1,2 +1,3 @@
-reno mange de la merde en boite
-fvve
+primo 600 800 13.24 ./src/bambou.png
+deuxio 200 300 8.72 ./src/bambou.png
+troisio 400 300 8.72 ./src/bambou.png

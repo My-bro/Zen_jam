@@ -10,14 +10,13 @@
 #ifndef LINK_STRUCT
     #define LINK_STRUCT
         #include <stdarg.h>
+        #include <string.h>
         #include <SFML/Graphics.hpp>
         typedef struct node_s {
-            sf::Sprite sprite_portal_a;
-            sf::Sprite sprite_portal_b;
-            sf::FloatRect bounds_portal_a;
-            sf::FloatRect bounds_portal_b;
-            sf::Vector2f coor_portal_a;
-            sf::Vector2f coor_portal_b;
+            std::string name;
+            float time;
+            sf::Sprite sprite;
+            sf::Texture texture;
             struct node_s *next;
         } node_t;
 #endif

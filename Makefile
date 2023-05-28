@@ -3,11 +3,12 @@
 ## File description:
 ## Makefile
 
-SRC = 	lib/splite_string.cpp\
+SRC = 	lib/lib_colision/colision_shape.cpp\
+		lib/splite_string.cpp\
 		lib/buffer_maker.cpp\
 		lib/config_file.cpp\
 		lib/link_node.cpp\
-		lib/main.cpp
+		main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

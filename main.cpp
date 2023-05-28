@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "ying_col.h"
+#include "node.h"
 
 char *buffer_maker(char *av);
 std::vector<std::string> splitString(const std::string &str, const std::string &separator);
@@ -16,7 +17,8 @@ std::vector<std::string> splitString(const std::string &str, const std::string &
 ying_col_s init_shape(sf::Color pubgmobil, float angle);
 void modify_angle(sf::Event event , sf::Sprite *sprite_ying_yang, float rayon, ying_col_s *red_col, ying_col_s *blu_col);
 void actualise_values(sf::Sprite sprite_ying_yang , float radius, ying_col_s *red_col, ying_col_s *blu_col);
-
+node_t *init_config_file(char *path);
+void draw_sprite(node_t *head, sf::RenderWindow *window);
 
 int main(int ac, char **av)
 {
@@ -37,12 +39,7 @@ int main(int ac, char **av)
     const float radius = texture.getSize().y / 13.0f;
     float rayon = 8.0f;
 
-    std::string file = buffer_maker("./src/configuration_file.txt");
-    std::vector<std::string> db = splitString(file," ");
-
-    for (std::vector<std::string>::const_iterator it = db.begin(); it != db.end(); ++it) {
-        std::cout << *it << std::endl;
-    }
+    node_t *head = init_config_file("./src/configuration_file.txt");
 
     while (window.isOpen()) {
         window.clear(sf::Color::White);
@@ -62,6 +59,7 @@ int main(int ac, char **av)
         window.draw(sprite_ying_yang);
         window.draw(red_col.square);
         window.draw(blu_col.square);
+        draw_sprite(head, &window);
         window.display();
     }
     return 0;
