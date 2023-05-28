@@ -11,6 +11,7 @@
 #include <iostream>
 #include <cstring>
 #include "node.h"
+#include "ying_col.h"
 
 std::vector<std::string> splitString(const std::string &str, const std::string &separator);
 void link_node(node_t **head, node_t **tail, node_t **node);
@@ -46,8 +47,15 @@ void draw_sprite(node_t *head, sf::RenderWindow *window, float time)
         if (head->time < time) {
             window->draw(head->sprite);
             sf::Vector2f position = head->sprite.getPosition();
-            head->sprite.setPosition(position.x, position.y + 2);
+            head->sprite.setPosition(position.x, position.y + 1.2);
         }
         head = head->next;
+    }
+}
+
+void check_colision(sf::Color red_pixelColor,  sf::Color blu_pixelColor, int *count_colision)
+{
+    if (red_pixelColor.g != 255 || blu_pixelColor.g != 0) {
+        *count_colision += 1;
     }
 }
