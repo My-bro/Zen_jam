@@ -18,7 +18,7 @@ ying_col_s init_shape(sf::Color pubgmobil, float angle);
 void modify_angle(sf::Event event , sf::Sprite *sprite_ying_yang, float rayon, ying_col_s *red_col, ying_col_s *blu_col);
 void actualise_values(sf::Sprite sprite_ying_yang , float radius, ying_col_s *red_col, ying_col_s *blu_col);
 node_t *init_config_file(char *path);
-void draw_sprite(node_t *head, sf::RenderWindow *window);
+void draw_sprite(node_t *head, sf::RenderWindow *window, float time);
 
 int main(int ac, char **av)
 {
@@ -74,9 +74,9 @@ int main(int ac, char **av)
         window.draw(sprite_ying_yang);
         window.draw(red_col.square);
         window.draw(blu_col.square);
-        draw_sprite(head, &window);
         sf::Time elapsed = clock.getElapsedTime();
         text.setString("Seconds: " + std::to_string(elapsed.asSeconds()));
+        draw_sprite(head, &window, elapsed.asSeconds());
         window.draw(text);
         window.display();
     }

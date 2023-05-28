@@ -39,10 +39,14 @@ node_t *init_config_file(char *path)
     return head;
 }
 
-void draw_sprite(node_t *head, sf::RenderWindow *window)
+void draw_sprite(node_t *head, sf::RenderWindow *window, float time)
 {
     while (head != nullptr) {
-        window->draw(head->sprite);
+        if (head->time < time) {
+            window->draw(head->sprite);
+            sf::Vector2f position = head->sprite.getPosition();
+            head->sprite.setPosition(position.x, position.y + 1.5);
+        }
         head = head->next;
     }
 }
