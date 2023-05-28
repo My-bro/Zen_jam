@@ -28,16 +28,23 @@ int main(int ac, char **av)
     sf::Event event;
     sf::RenderWindow window(sf::VideoMode(4010, 4066), "SFML Simple Window");
     window.setFramerateLimit(100);
+
     sf::Sprite sprite_ying_yang;
     sf::Texture texture;
-
-    int count_colision = -1;
-    float protection = 0;
-
     sprite_ying_yang.setPosition(1430,1330);
     sprite_ying_yang.setScale(0.3,0.3);
     texture.loadFromFile("./src/yinyang.png");
     sprite_ying_yang.setTexture(texture);
+
+    sf::Sprite shield;
+    sf::Texture texture_shield;
+    shield.setPosition(1900,1280);
+    shield.setScale(0.6,0.6);
+    texture_shield.loadFromFile("./src/shield_sprite.png");
+    shield.setTexture(texture_shield);
+
+    int count_colision = -1;
+    float protection = 0;
 
     ying_col_s red_col = init_shape(sf::Color::Red, 1.45);
     ying_col_s blu_col = init_shape(sf::Color::Blue, -1.45);
@@ -88,6 +95,9 @@ int main(int ac, char **av)
         draw_sprite(head, &window, elapsed.asSeconds());
         window.draw(text_colision);
         window.draw(text);
+        if (elapsed.asSeconds() < protection + 0.3) {
+            window.draw(shield);
+        }
 
         window.display();
 
@@ -99,12 +109,10 @@ int main(int ac, char **av)
         sf::Vector2f blu_center(blu_col.square.getPosition().x, blu_col.square.getPosition().y);
         sf::Color red_pixelColor = screenshot.getPixel(red_center.x, red_center.y);
         sf::Color blu_pixelColor = screenshot.getPixel(blu_center.x, blu_center.y);
-        //check_colision((sf::Color)red_pixelColor, (sf::Color)blu_pixelColor, &count_colision);
         check_colision((sf::Color)red_pixelColor,  (sf::Color) blu_pixelColor,&count_colision, &protection, elapsed.asSeconds());
 
-
-        printf("RED [ r : %hhu g : %hhu b :  %hhu]\n",red_pixelColor.r, red_pixelColor.g, red_pixelColor.b);
-        printf("BLUE [ r : %hhu g : %hhu b :  %hhu]\n",blu_pixelColor.r, blu_pixelColor.g, blu_pixelColor.b);
+        //printf("RED [ r : %hhu g : %hhu b :  %hhu]\n",red_pixelColor.r, red_pixelColor.g, red_pixelColor.b);
+        //printf("BLUE [ r : %hhu g : %hhu b :  %hhu]\n",blu_pixelColor.r, blu_pixelColor.g, blu_pixelColor.b);
     }
     return 0;
 }
