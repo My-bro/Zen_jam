@@ -33,12 +33,12 @@ void modify_angle(sf::Event event , sf::Sprite *sprite_ying_yang, float rayon, y
 void actualise_values(sf::Sprite sprite_ying_yang , float radius, ying_col_s *red_col, ying_col_s *blu_col)
 {
     sf::Vector2f pos = sprite_ying_yang.getPosition();
-    pos.x += std::cos(red_col->angle) * radius;
-    pos.y += std::sin(red_col->angle) * radius;
+    pos.x += cos(red_col->angle) * radius;
+    pos.y += sin(red_col->angle) * radius;
 
     sf::Vector2f pos_blue = sprite_ying_yang.getPosition();
-    pos_blue.x += std::cos(blu_col->angle) * radius;
-    pos_blue.y += std::sin(blu_col->angle) * radius;
+    pos_blue.x += cos(blu_col->angle) * radius;
+    pos_blue.y += sin(blu_col->angle) * radius;
 
     red_col->square.setPosition(pos);
     blu_col->square.setPosition(pos_blue);
