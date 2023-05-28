@@ -1,3 +1,9 @@
-primo 1230 10 1.24 30 ./src/bambou.png
-deuxio 1330 10 2.72 90 ./src/bambou.png
-troisio 1530 10 3.72 13 ./src/bambou.png
+primo 1200 10 1.24 30 ./src/bambou.png
+deuxio 1300 10 2.72 90 ./src/bambou.png
+troisio 1500 10 3.72 13 ./src/bambou.png
+quatre 1140 10 4.24 10 ./src/bambou.png
+cinq 1300 10 6.72 3 ./src/bambou.png
+six 1500 10 8.72 1 ./src/bambou.png
+sept 1880 10 9.24 90 ./src/bambou.png
+huit 1880 10 11.24 90 ./src/bambou.png
+neuf 1880 10 13.24 90 ./src/bambou.png
