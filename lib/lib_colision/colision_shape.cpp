@@ -6,6 +6,7 @@
 */
 
 #include <SFML/Graphics.hpp>
+#include <math.h>
 #include "ying_col.h"
 
 ying_col_s init_shape(sf::Color pubgmobil, float angle)

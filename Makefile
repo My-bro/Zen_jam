@@ -18,7 +18,7 @@ CXX = g++
 
 CPPFLAGS        =       -iquote includes
 
-LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm
 
 all: $(NAME)
 
