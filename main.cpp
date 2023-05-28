@@ -41,6 +41,21 @@ int main(int ac, char **av)
 
     node_t *head = init_config_file("./src/configuration_file.txt");
 
+    sf::Font font;
+    if (!font.loadFromFile("./src/font.ttf")) // You need to provide a font file here
+    {
+        // error handling
+        return 1;
+    }
+
+    sf::Text text;
+    text.setFont(font);
+    text.setCharacterSize(24);
+    text.setFillColor(sf::Color::Black);
+    text.setPosition(50, 50);
+
+    sf::Clock clock;
+
     while (window.isOpen()) {
         window.clear(sf::Color::White);
         while (window.pollEvent(event)) {
@@ -60,6 +75,9 @@ int main(int ac, char **av)
         window.draw(red_col.square);
         window.draw(blu_col.square);
         draw_sprite(head, &window);
+        sf::Time elapsed = clock.getElapsedTime();
+        text.setString("Seconds: " + std::to_string(elapsed.asSeconds()));
+        window.draw(text);
         window.display();
     }
     return 0;
