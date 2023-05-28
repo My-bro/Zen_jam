@@ -53,9 +53,12 @@ void draw_sprite(node_t *head, sf::RenderWindow *window, float time)
     }
 }
 
-void check_colision(sf::Color red_pixelColor,  sf::Color blu_pixelColor, int *count_colision)
+void check_colision(sf::Color red_pixelColor,  sf::Color blu_pixelColor, int *count_colision, float *protection, float time)
 {
-    if (red_pixelColor.g != 255 || blu_pixelColor.g != 0) {
-        *count_colision += 1;
+    if (time > *protection) {
+        if (red_pixelColor.g != 255 || blu_pixelColor.g != 0) {
+            *count_colision += 1;
+            *protection = time + 1;
+        }
     }
 }

@@ -21,7 +21,7 @@ void modify_angle(sf::Event event , sf::Sprite *sprite_ying_yang, float rayon, y
 void actualise_values(sf::Sprite sprite_ying_yang , float radius, ying_col_s *red_col, ying_col_s *blu_col);
 node_t *init_config_file(char *path);
 void draw_sprite(node_t *head, sf::RenderWindow *window, float time);
-void check_colision(sf::Color red_pixelColor,  sf::Color blu_pixelColor, int *count_colision);
+void check_colision(sf::Color red_pixelColor,  sf::Color blu_pixelColor, int *count_colision, float *protection, float time);
 
 int main(int ac, char **av)
 {
@@ -31,7 +31,8 @@ int main(int ac, char **av)
     sf::Sprite sprite_ying_yang;
     sf::Texture texture;
 
-    int count_colision = 0;
+    int count_colision = -1;
+    float protection = 0;
 
     sprite_ying_yang.setPosition(1430,1330);
     sprite_ying_yang.setScale(0.3,0.3);
@@ -98,7 +99,9 @@ int main(int ac, char **av)
         sf::Vector2f blu_center(blu_col.square.getPosition().x, blu_col.square.getPosition().y);
         sf::Color red_pixelColor = screenshot.getPixel(red_center.x, red_center.y);
         sf::Color blu_pixelColor = screenshot.getPixel(blu_center.x, blu_center.y);
-        check_colision((sf::Color)red_pixelColor, (sf::Color)blu_pixelColor, &count_colision);
+        //check_colision((sf::Color)red_pixelColor, (sf::Color)blu_pixelColor, &count_colision);
+        check_colision((sf::Color)red_pixelColor,  (sf::Color) blu_pixelColor,&count_colision, &protection, elapsed.asSeconds());
+
 
         printf("RED [ r : %hhu g : %hhu b :  %hhu]\n",red_pixelColor.r, red_pixelColor.g, red_pixelColor.b);
         printf("BLUE [ r : %hhu g : %hhu b :  %hhu]\n",blu_pixelColor.r, blu_pixelColor.g, blu_pixelColor.b);
