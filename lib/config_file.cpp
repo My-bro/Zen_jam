@@ -28,10 +28,11 @@ node_t *init_config_file(char *path)
         node = new node_t;
         sf::Texture texture1;
         node->sprite.setScale(1, 1);
-        node->texture.loadFromFile(line[4].c_str());
+        node->sprite.setRotation(atof(line[4].c_str()));
+        node->texture.loadFromFile(line[5].c_str());
         node->sprite.setTexture(node->texture);
         node->sprite.setPosition(atoi(line[1].c_str()), atoi(line[2].c_str()));
-        node->time = atoi(line[3].c_str());
+        node->time = atof(line[3].c_str());
         node->name = line[0];
         link_node(&head, &tail, &node);
         node = node->next;
@@ -45,7 +46,7 @@ void draw_sprite(node_t *head, sf::RenderWindow *window, float time)
         if (head->time < time) {
             window->draw(head->sprite);
             sf::Vector2f position = head->sprite.getPosition();
-            head->sprite.setPosition(position.x, position.y + 1.5);
+            head->sprite.setPosition(position.x, position.y + 2);
         }
         head = head->next;
     }

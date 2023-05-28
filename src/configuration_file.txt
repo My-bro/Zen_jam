@@ -1,3 +1,3 @@
-primo 930 10 1.24 ./src/bambou.png
-deuxio 1030 10 2.72 ./src/bambou.png
-troisio 1130 10 3.72 ./src/bambou.png
+primo 1230 10 1.24 30 ./src/bambou.png
+deuxio 1330 10 2.72 90 ./src/bambou.png
+troisio 1530 10 3.72 13 ./src/bambou.png
